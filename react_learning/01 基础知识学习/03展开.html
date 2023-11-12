@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展开</title>
+</head>
+<body>
+<script>
+    function fn(a, b, c){
+        return a+b+c;
+    }
+    const arr = [1,2,3];
+    //计算三个数字和
+    let result = fn(arr[0], arr[1], arr[2]);
+    console.log(result);
+
+    //展开
+    result = fn(...arr); //三个点就是表示展开
+
+    const arr2 = [...arr]; //相当于arr浅赋值给arr2
+    const arr3 = [3,4,...arr, 7,8]
+
+    //展开对象
+    const obj = {
+        name:"孙悟空",
+        age:10,
+        gender:"男"
+    };
+    const obj2 = {...obj}; //也是浅复制
+    console.log(obj2);
+    const obj3 = {address:"花果山", name:"猪八戒", ...arr}; //这时展开name为孙悟空，因为name冲突以后面的为准
+
+</script>
+</body>
+</html>

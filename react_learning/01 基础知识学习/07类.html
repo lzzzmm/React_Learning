@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类</title>
+</head>
+<body>
+类中定义了对象中包含了哪些属性和方法，传统方式是可以直接通过function来定义类，但这两种定义方式不是完全相通
+<script>
+    /*
+    类
+        - 类是对象的模块
+        - 决定一个对象中有哪些属性和方法
+        - 使用class关键字定义一个类
+     */
+    class Person{
+        //构造函数
+        constructor(name, age) {
+            console.log('我执行啦！');
+            this.name = name;
+            this.age = age;
+        }
+        /*name = "孙悟空";  //可以直接写在构造函数里
+        age = 10;*/
+
+        //定义实例方法
+        run(){
+            console.log('我会跑');
+        }
+    }
+    const per = new Person("猪八戒", 8);
+    const per2 = new Person();
+    console.log(per);
+    console.log(per2);
+    console.log(per === per2); //false
+    per.run();
+</script>
+</body>
+</html>

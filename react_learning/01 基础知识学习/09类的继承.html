@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的继承</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        sayHello = ()=>{
+            console.log("动物在叫");
+        };
+    }
+    class Dog extends Animal{
+        sayHello = ()=>{
+            console.log("汪汪汪");
+        }
+    }
+
+    class Snake extends Animal{
+        // 在子类中重写父类构造函数时候，必须在子类构造函数中第一时间调用父类构造函数，否则会报错
+
+        constructor(name, age, length) {
+            super(name, age); // 调用父类构造函数
+            this.length = length;
+        }
+    }
+    const dog = new Dog("旺财", 10);
+    const snake = new Snake("长虫", 1, 2);
+    console.log(dog);
+    console.log(snake);
+    dog.sayHello();
+    snake.sayHello();
+</script>
+</body>
+</html>

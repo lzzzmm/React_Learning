@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量声明</title>
+</head>
+<body>
+react三种声明方式中，第一优先使用const，如果希望变量被改变则使用let，var最好不要在代码中出现！
+<script>
+    /*
+    var ：没有块级作用域
+    let ：有块级作用域
+    const ：和let类似有块级作用域但是只能赋值一次
+        - 使用场景
+            1、对于一些常量可以使用const
+            2、对于一些对象（函数）也可以使用const
+                这样可以避免函数被意外修改
+     */
+    for(let i=0; i<5;i++){
+        console.log("循环内部-->",i);
+    }
+    if(false)
+        var b = 33;
+
+    console.log(b); //这个b有被创建但是没有赋值 变量提升
+
+    (function (){  //立即执行函数
+        if(false)
+            var k = 33;  //在函数作用域里面外部才会真的访问不到
+    })
+
+    const fn = function (){
+
+    }
+    const c = 44;
+    const obj = {name:"孙悟空"}; //不能重新赋值
+    obj.age = 10; //但可以增加属性
+    console.log(obj.name);
+    console.log(obj);
+</script>
+</body>
+</html>

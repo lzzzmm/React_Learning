@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的this</title>
+</head>
+<body>
+<script>
+    "use strict";
+    /*
+    类中所有代码都会在严格模式下执行
+        严格模式下其中一个特点是，函数的this不再是window， 而是undefined
+
+    注意：
+        在类中方法的this不是固定的
+            以方法形式调用时，this就是当前的实例
+            以函数形式调用时，this是undefined
+
+        在开发时候有些场景下，希望方法中的this是固定的，不会因为调用方式不同而改变
+            如果遇到这样的需求，可以使用箭头函数来定义类中的方法
+            如果类中的方法是以箭头函数定义的，则方法中的this恒为当前实例，不会改变
+     */
+    class MyClass{
+        constructor() {
+            //this.fn = this.fn.bind(this); // 将fn方法的this绑定为当前实例
+        }
+        fn(){ //方法
+            console.log('-->', this);
+        }
+
+        fn2 = ()=>{
+            console.log(this);
+        }
+    }
+    const mc = new MyClass();
+    mc.fn();
+
+    const test = mc.fn; //以函数形式执行
+    test(); //undefined
+
+    const fn2 = function (){ //函数
+        console.log(this);
+    }
+    fn2();
+    mc.fn2();
+</script>
+</body>
+</html>

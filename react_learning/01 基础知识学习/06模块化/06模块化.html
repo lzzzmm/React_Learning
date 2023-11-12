@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+</head>
+<body>
+<!--<script src="m1.js">
+    //这是js最原始的模块化
+    fn();
+</script>-->
+<!--
+    默认情况下 script标签中不能使用import语句
+    如果想让其支持模块化，必须设置script的type属性为module
+-->
+<script type="module">
+    // 导入m1模块中的默认模块
+    import a from './m1.js';
+    console.log(a);
+    // 导入m1模块中的b,c 命名导入
+    import {b, c as hello, obj} from './m1.js';
+    console.log(b, hello, obj);
+
+    //import a, {b, c as hello, obj} from './m1.js'; //一起导入的写法
+</script>
+</body>
+</html>

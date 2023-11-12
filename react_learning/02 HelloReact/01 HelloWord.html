@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>helloWord</title>
+</head>
+<body>
+<div id='root'></div>
+<div id='root2'></div>
+<!--<script>
+    /*
+    react就是代替DOM
+     */
+    // 通过DOM向页面中添加一个div
+    const div = document.createElement('div'); // 创建一个dom元素
+    // 向div中设置内容
+    div.innerText = '我是一个div';
+    // 获取root
+    const root = document.getElementById('root');
+    // 将div添加到页面中
+    root.appendChild(div);
+</script>-->
+<!--引入react核心库-->
+<script src="Script/react.development.js"></script>
+<!--引入react的DOM库-->
+<script src="Script/react-dom.development.js"></script>
+<script>
+    /*
+    React.createElement
+        参数
+            - 元素名（组件名）
+            - 元素中的属性
+            - 元素的子元素（内容）
+     */
+    // 通过react向页面中添加一个div
+    const div = React.createElement('div',{},"react创建的div"); // 创建一个react元素
+    // 获取根元素对应的react元素
+    // createRoot创建react根元素，需要一个DOM元素作为参数
+    const root2 = ReactDOM.createRoot(document.getElementById('root2'));
+    //将div渲染到根元素中
+    root2.render(div);
+</script>
+</body>
+</html>

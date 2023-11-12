@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+    /*
+    只有一个参数的函数   参数=>返回值
+    没有参数或多个参数，用()括起来
+    如果需要在箭头函数中定义逻辑，可以直接在箭头后跟一个代码块
+     */
+    const fn = function (a){
+        return "hello";
+    }
+    const fn2 = a=> 'hello';
+    console.log(fn2(1));
+
+    const fn3 = (b, a)=>b+"hello"+a;
+    console.log(fn3(2));
+
+    const fn4 = (a, b) => {
+        if(a === 10)
+            a+=5;
+        else if (a === 5)
+            a+=10;
+        else
+            a+=1;
+        return a+b;
+    }
+    console.log(fn4(10, 5));
+</script>
+</body>
+</html>

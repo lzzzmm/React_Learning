@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组方法补充</title>
+</head>
+<body>
+<script>
+    const arr = [1,2,3,4,5];
+    /*
+    map()
+        - 根据原有数组返回一个新数组
+        - 需要一个回调函数作为参数，回调函数的返回值会成为新数组中的元素
+        - 回调函数有三个参数：
+            - 当前元素
+            - 当前元素索引
+            - 当前数组
+    filter()
+        - 可以从一个数组中获得符合条件的元素
+        - 会根据回调函数的结果来决定是否保留元素，true保留，false不保留
+
+    find()
+        - 可以从数组中获得符合条件的第一个元素
+
+    reduce()
+        - 可以合并数组中的元素
+        - 需要两个超速
+            - 回调函数 指定运算规则
+                - prev 上一次运算结果
+                - curr 当前值
+                - index 电器索引
+                - arr 当前数组
+            - 初始值
+     */
+    let result = arr.map(()=>10);  //[10, 10, 10, 10, 10]
+    console.log(result);
+    result = arr.map((item)=>item+2); //[3, 4, 5, 6, 7]
+    console.log(result);
+
+
+    const arr2 = ['孙悟空', '猪八戒', '沙和尚'];
+    result = arr2.map((item, index, arr2)=>{
+        return "<li>"+item+"</li>";
+    })
+    console.log(result);
+
+    result = arr.filter(item=>item>3);
+    console.log(result);
+
+    result = arr.find(item=>item>3); // 4
+    console.log(result);
+
+    result = arr.reduce((prev, curr)=>prev+curr, 1); //可以执行初始值
+    console.log(result);
+</script>
+</body>
+</html>
