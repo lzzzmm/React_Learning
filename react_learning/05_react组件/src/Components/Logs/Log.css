@@ -1,0 +1,7 @@
+/*设置外层容器*/
+.logs{
+    padding: 20px;
+    background-color: #EAE287;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}

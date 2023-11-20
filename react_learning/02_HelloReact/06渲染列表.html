@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渲染列表</title>
+    <script src="Script/react.development.js"></script>
+    <script src="Script/react-dom.development.js"></script>
+    <script src="Script/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    /*
+    {}智能用来放js表达式，而不能放语句 （if  for）
+        在语句中是可以操作jsx
+     */
+
+    const name = "孙悟空";
+    const lang = 'cn';
+    let div;
+    if(lang === 'en'){
+        div = <div>hello {name}</div>
+    }
+    else{
+        div = <div>你好 {name}</div>
+    }
+    const arr = ['孙悟空', '猪八戒', '沙和尚'];
+    /*
+    <ul>
+        <li>孙悟空<li/>
+        <li>猪八戒<li/>
+    <ul/>
+     */
+    // 将arr渲染为一个列表在网页中显示
+    // jsx会自动将数组中的元素在页面中显示
+    const list = <div>{arr}</div>;
+
+    // 方法1 for循环拼接
+    const arr2 = []
+    for(let i=0;i<arr.length;i++){
+        arr2.push(<li>{arr[i]}</li>);
+    }
+
+    // 方法2
+    const arr3 = arr.map(item=><li>{item}</li>);
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(arr3);
+</script>
+</body>
+</html>

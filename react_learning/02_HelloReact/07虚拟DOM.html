@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>虚拟DOM</title>
+    <script src="Script/react.development.js"></script>
+    <script src="Script/react-dom.development.js"></script>
+    <script src="Script/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    const data = ['孙悟空', '猪八戒', '沙和尚'];
+    // 创建列表
+    const list = <ul>
+        {/*data.map(item=><li key={item}>{item}</li>)*/}
+        {data.map((item, index)=><li key={index}>{item}</li>)}
+    </ul>
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(list);
+
+    /*
+    在react中操作的元素被称为react元素，并不是真正的原声DOM元素
+        react通过虚拟DOM 将react元素和原生DOM进行映射，虽然操作的react元素，但是这些操作最终会在真实DOM中体现
+        虚拟DOM好处：
+            1、降低API复杂度
+            2、解决兼容问题
+            3、提升性能，减少DOM的不必要操作
+        每当调用root.render时，页面会发生重新渲染
+            react会通过diffing算法，将当前的元素和就元素进行比较，只对发生变化的元素进行修改
+
+        比较两次数据时，react会先比较父元素。父元素如果不同，直接所有元素全部替换，父元素一致，再去逐个比较子元素，直到找到所有发生变化的元素为止
+
+        当在JSX中显示数组，数组的每一个元素都需要设置一个唯一key值。否则控制台会显示红色警告
+            重新渲染页面时，react会按照顺序比较对应元素，当渲染一个列表时，如果不指定key，同样按顺序比较
+            如果列表顺序永远不变，这么做没有问题，如果列表顺序发生变化，这么做就有性能问题
+            key相当于ID，知识无法在页面中查看。设置key后比较元素，就会比较系统相同key的元素
+            开发过程中一般会采用数据的id作为key
+            尽量不要使用元素的index作为key，因为索引是会变的，这样有key没key都一样，不同的是控制台无报错
+
+
+
+     */
+</script>
+</body>
+</html>

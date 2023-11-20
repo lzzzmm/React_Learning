@@ -1,0 +1,14 @@
+.app{
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    font-size: 20px;
+    background-color: #FCBF49;
+    text-align: center;
+}
+
+.app button{
+    font-size: 50px;
+    width: 100px;
+    margin: 0 auto;
+}

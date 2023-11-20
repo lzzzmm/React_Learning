@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三个API</title>
+    <script src="Script/react.development.js"></script>
+    <script src="Script/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+
+    // 创建一个react元素
+    const button = React.createElement("button", {id:'btn', type:'button', className:'hello', onClick:()=>alert(123)}, '点我一下'); //react中标签名必须是小写
+
+    // 创建第一个div
+    const div = React.createElement("div", {}, '我是一个div', button);
+
+    // ReactDOM.render(div, document.getElementById('root')); // 老版本的react中使用方法，就是把下面两步合成一步
+
+    // 获取根元素 根元素就是React元素要插入的位置
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    // 将元素在根元素中显示
+    /*
+    root.render
+        - 将react元素渲染到根元素中
+        - 根元素中所有内容都会被删除，被react元素所替换
+        - 当重复调用render时，react会将两次的渲染结果进行比较，确保只修改发生变化的元素，对DOM做最小的修改
+     */
+    root.render(div);
+
+</script>
+</body>
+</html>
