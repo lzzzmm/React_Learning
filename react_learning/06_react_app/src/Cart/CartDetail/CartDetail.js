@@ -18,7 +18,7 @@ const CartDetail = () => {
         setShoeConfirm(false);
     }
     const okHandler=()=>{
-        ctx.clearCart();
+        ctx.cartDispatch({type:"CLEAR"});
     }
     return (
         <Backdrop>

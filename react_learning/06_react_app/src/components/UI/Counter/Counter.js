@@ -22,11 +22,13 @@ const Counter = (props) => {
     const ctx = useContext(cartContext);
     const addButtonHandler = ()=>{
         //props.onAdd(props.meal);
-        ctx.addItem(props.meal);
+        //ctx.addItem(props.meal);
+        ctx.cartDispatch({type:"ADD", meal:props.meal})
     }
     const subButtonHandler = ()=>{
         //props.onSub(props.meal);
-        ctx.removeItem(props.meal);
+        //ctx.removeItem(props.meal);
+        ctx.cartDispatch({type:"SUB", meal:props.meal})
     }
     return (
         <div className={classes.Counter}>

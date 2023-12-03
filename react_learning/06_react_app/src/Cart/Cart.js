@@ -64,4 +64,13 @@ const Cart = () => {
     );
 };
 
+/*
+React.meno()是一个高阶组件
+    接收另一个组件作为参数，并且会返回一个包装过的新组件
+    包装过的新组件会有缓存功能
+        包装后，只有组件的props发生变化，才会触发组件的重新渲染，否则总是返回缓存中结果
+ */
+
+//export default React.memo(Cart);
 export default Cart;
+
